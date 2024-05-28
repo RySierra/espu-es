@@ -86,7 +86,9 @@ template {
 }
 
 a {
-    background-color: transparent
+    background-color: transparent;
+    text-decoration: none;
+    color: white;
 }
 
 a:active,
@@ -623,7 +625,7 @@ body {
     flex-direction: column;
     -webkit-justify-content: space-around;
     -ms-flex-pack: distribute;
-    justify-content: space-around;
+    justify-content: space-evenly;
     margin: 0;
     padding: 0;
     list-style-position: inside;
@@ -659,36 +661,36 @@ body {
 }
 
 .side-nav li:nth-child(1)::before {
-    content: "01"
+    content: "1"
 }
 
 .side-nav li:nth-child(2)::before {
-    content: "02"
+    content: "2"
 }
 
 .side-nav li:nth-child(3)::before {
-    content: "03"
+    content: "3"
 }
 
 .side-nav li:nth-child(4)::before {
-    content: "04"
+    content: "4"
 }
 
 .side-nav li:nth-child(5)::before {
-    content: "05"
+    content: "5"
 }
 
 .side-nav li.is-active {
     color: #0f33ff;
-    -webkit-transition: color .4s ease-in-out;
-    transition: color .4s ease-in-out
+    -webkit-transition: color .8s ease-in-out;
+    transition: color .8s ease-in-out
 }
 
 .side-nav li.is-active span {
     opacity: 1;
     visibility: visible;
-    -webkit-transition: opacity .4s ease-in-out;
-    transition: opacity .4s ease-in-out
+    -webkit-transition: opacity .8s ease-in-out;
+    transition: opacity .8s ease-in-out
 }
 
 .side-nav li.is-active::before {
@@ -1872,3 +1874,5 @@ body {
 .menu-toggle:hover {
     background: #555;
 }
+
+
