@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Global</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="HTML5 website template" />
+    <meta name="keywords" content="global, template, html, sass, jquery" />
+    <meta name="author" content="Bucky Maler" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <title>Directores</title>
+  </head>
+  <body>
+    <!-- notification for small viewports and landscape oriented smartphones -->
+    <div class="device-notification">
+      <a class="device-notification--logo" href="#0">
+        <img src="../assets/img/logo.png" alt="Global" />
+        <p>Global</p>
+      </a>
+      <p class="device-notification--message">
+        Por ahora, Espuñes solo esta codificada para pantallas grandes.
+      </p>
+    </div>
+
+    <div>
+      <div class="container">
+        <div id="viewport" class="l-viewport">
+          <div class="l-wrapper">
+            <header class="header">
+              <a class="header--logo" href="#0">
+                <img src="../assets/img/logo.png" alt="Global" />
+                <p>Fabrica Luis Espuñes</p>
+              </a>
+              <div class="header--nav-toggle">
+                <span></span>
+              </div>
+            </header>
+            <nav class="l-side-nav">
+              <ul class="side-nav">
+                <li><span>Home</span></li>
+                <li><span>Historia de la Platería</span></li>
+                <li class="is-active"><span>Fundadores &amp; Directores</span></li>
+                <li><span>Catálogo</span></li>
+                <li><a href="../index.html"><span>Anexos</span></a></li>
+              </ul>
+            </nav>
+            <ul class="l-main-content main-content">
+              <li class="l-section section section--is-active">
+                <div class="intro">
+                  <div class="intro--banner">
+                    <img
+                      src="../assets/img/introduction-visual.png"
+                      alt="Welcome"
+                      style="width: 80%"
+                    />
+                    <h1>Fabrica de Plata<br />Luis Espuñes<br />(Fechas)</h1>
+                    <button class="cta">
+                      Posible botón
+                      <svg
+                        version="1.1"
+                        id="Layer_1"
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        x="0px"
+                        y="0px"
+                        viewBox="0 0 150 118"
+                        style="enable-background: new 0 0 150 118"
+                        xml:space="preserve"
+                      >
+                        <g
+                          transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)"
+                        >
+                          <path
+                            d="M870,1167c-34-17-55-57-46-90c3-15,81-100,194-211l187-185l-565-1c-431,0-571-3-590-13c-55-28-64-94-18-137c21-20,33-20,597-20h575l-192-193C800,103,794,94,849,39c20-20,39-29,61-29c28,0,63,30,298,262c147,144,272,271,279,282c30,51,23,60-219,304C947,1180,926,1196,870,1167z"
+                          />
+                        </g>
+                      </svg>
+                      <span class="btn-background"></span>
+                    </button>
+                    <!-- <img src="../assets/img/introduction-visual.png" alt="Welcome" style="width: 60%"> -->
+                  </div>
+                  <div class="intro--options">
+                    <a href="fundadores.html">
+                      <h3>Fundadores &amp; Directores</h3>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                        sed do.
+                      </p>
+                    </a>
+                    <a href="historia.html">
+                      <h3>Historia de la Platería</h3>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                        sed do.
+                      </p>
+                    </a>
+                    <a href="#catalogue">
+                      <h3>Catálogo</h3>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                        sed do.
+                      </p>
+                    </a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="overlay"></div>
+      <ul class="outer-nav">
+        <li>Home</li>
+        <li>Fundadores</li>
+        <li>Historia</li>
+        <li>Catálogo</li>
+        <li>Anexos</li>
+      </ul>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script>
+      window.jQuery ||
+        document.write(
+          '<script src="../assets/js/vendor/jquery-2.2.4.min.js"><\/script>'
+        );
+    </script>
+    <script src="../assets/js/functions-min.js"></script>
+    <script>
+      // Toggle the visibility of the menu and the overlay
+      document
+        .querySelector(".header--nav-toggle")
+        .addEventListener("click", function () {
+          document.querySelector(".outer-nav").classList.toggle("is-vis");
+          document.querySelector(".overlay").classList.toggle("is-vis");
+        });
+
+      // Add event listeners to each menu item
+      document.querySelectorAll(".outer-nav > li").forEach((item) => {
+        item.addEventListener("click", function () {
+          // Remove 'selected' class from all items
+          document
+            .querySelectorAll(".outer-nav > li")
+            .forEach((el) => el.classList.remove("selected"));
+          // Add 'selected' class to the clicked item
+          this.classList.add("selected");
+          // Remove overlay
+          document.querySelector(".overlay").classList.remove("is-vis");
+        });
+      });
+
+      // Add event listener to close menu
+      document.body.addEventListener("click", function (event) {
+        const menu = document.querySelector(".outer-nav");
+        const toggleButton = document.querySelector(".header--nav-toggle");
+
+        // Check if the clicked element is not part of the menu or the toggle button
+        if (
+          !menu.contains(event.target) &&
+          !toggleButton.contains(event.target)
+        ) {
+          menu.classList.remove("is-vis");
+          document.querySelector(".overlay").classList.remove("is-vis");
+        }
+      });
+
+      //Okay so, you gotta check if the checkbox is toggled and if it's not, you run the code, otherwise you don't
+      function downloadFile(url, filename, event) {
+        // Check if download link already exists
+        if (!document.getElementById("downloadLink")) {
+          // Prevent default behavior (e.g., checkbox toggling)
+          var a = document.createElement("a");
+          a.href = url;
+          a.download = filename;
+          a.id = "downloadLink";
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        }
+      }
+    </script>
+  </body>
+</html>
